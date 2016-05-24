@@ -1,7 +1,9 @@
 package com.muchtolearn.service;
 
-import org.springframework.context.annotation.Lazy;
+import com.muchtolearn.model.FlashCard;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDateTime;
 
 /**
  * Created by Michael on 5/21/2016.
@@ -10,7 +12,13 @@ import org.springframework.stereotype.Component;
 public class FlashCardDaoImpl implements FlashCardDao{
 
     @Override
-    public void addFlashCard() {
+    public FlashCard getFlashCard() {
         System.out.println("Added the FlashCard!");
+        FlashCard flashCard = new FlashCard();
+        flashCard.setDateTimeAdded(LocalDateTime.now());
+        flashCard.setTitle("First Card!");
+        flashCard.setDescription("This is the description!!");
+        return flashCard;
+
     }
 }
